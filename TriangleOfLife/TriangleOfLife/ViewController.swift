@@ -5,9 +5,26 @@
 //  Created by Yunus Emre Berdibek on 8.03.2024.
 //
 
+import CoreML
+import ImageIO
 import UIKit
+import Vision
 
 final class ViewController: UIViewController {
+    lazy var detectionRequest: VNCoreMLRequest = {
+        do {
+            let model: VNCoreMLModel = try .init(for: TriangleOfLife_1().model)
+            let request: VNCoreMLRequest = .init(model: model) { [weak self] request, error in
+                self?.processDetections(for: request, error: error)
+            }
+
+            request.imageCropAndScaleOption = .scaleFit
+            return request
+        } catch {
+            fatalError()
+        }
+    }()
+
     private let chooseImageButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +72,70 @@ final class ViewController: UIViewController {
             chooseImageButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+
+    private func updateDetections(for image: UIImage) {
+        let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue))
+        guard let ciImage = CIImage(image: image) else { fatalError("Unable to create \(CIImage.self) from \(image).") }
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation!)
+            do {
+                try handler.perform([self.detectionRequest])
+            } catch {
+                print("Failed to perform detection.\n\(error.localizedDescription)")
+            }
+        }
+    }
+
+    private func processDetections(for request: VNRequest, error: Error?) {
+        DispatchQueue.main.async {
+            guard let results = request.results else {
+                print("Unable to detect anything.\n\(error!.localizedDescription)")
+                return
+            }
+
+            let detections = results as! [VNRecognizedObjectObservation]
+            self.drawDetectionsOnPreview(detections: detections)
+        }
+    }
+}
+
+extension ViewController {
+    func drawDetectionsOnPreview(detections: [VNRecognizedObjectObservation]) {
+        guard let image = imageView.image else { return }
+        let imageSize = image.size
+        let scale: CGFloat = 0
+
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, scale)
+        image.draw(at: .zero)
+
+        for detection in detections {
+            // Tespitin etiketlerini ve güven değerlerini al
+
+            let (highestConfidence, highestConfidenceLabel) = detection.labels.reduce((0, "")) { result, label in
+                label.confidence > result.0 ? (label.confidence, label.identifier) : result
+            }
+
+            // Tespitin sınırlayıcı kutusunu hesapla
+            let boundingBox = detection.boundingBox
+            let rectangle = CGRect(x: boundingBox.minX * image.size.width, y: (1 - boundingBox.minY - boundingBox.height) * image.size.height, width: boundingBox.width * image.size.width, height: boundingBox.height * image.size.height)
+
+            // Çerçeve içine etiketi çiz
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: 24),
+                .foregroundColor: UIColor.secondaryLabel
+            ]
+            let attributedString = NSAttributedString(string: highestConfidenceLabel + " " + highestConfidence.description, attributes: attributes)
+            attributedString.draw(at: CGPoint(x: rectangle.minX, y: rectangle.minY))
+
+            // Çerçeve çiz
+            UIColor(red: 0, green: 1, blue: 0, alpha: 0.3).setFill()
+            UIRectFillUsingBlendMode(rectangle, CGBlendMode.normal)
+        }
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        imageView.image = newImage
+    }
 }
 
 extension ViewController {
@@ -94,7 +175,9 @@ extension ViewController {
 extension ViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[.originalImage] as? UIImage else { return }
+
         imageView.image = image
+        updateDetections(for: image)
         dismiss(animated: true)
     }
 }
