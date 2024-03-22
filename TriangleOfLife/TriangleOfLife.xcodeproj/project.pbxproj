@@ -8,19 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		AA0F2A082BA263FA005F3304 /* TriangleOfLife 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA0F2A072BA263FA005F3304 /* TriangleOfLife 1.mlmodel */; };
+		AA31B1DE2BAE3EAD00151DD9 /* FCRN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA31B1DD2BAE3EAD00151DD9 /* FCRN.mlmodel */; };
+		AA31B1E22BAE3EDD00151DD9 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA31B1DF2BAE3EDD00151DD9 /* DrawingView.swift */; };
+		AA31B1E32BAE3EDD00151DD9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA31B1E02BAE3EDD00151DD9 /* HomeView.swift */; };
+		AA31B1E42BAE3EDD00151DD9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA31B1E12BAE3EDD00151DD9 /* HomeViewController.swift */; };
+		AA31B1E92BAE3F0400151DD9 /* Rotatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA31B1E72BAE3F0400151DD9 /* Rotatable.swift */; };
+		AA31B1EA2BAE3F0400151DD9 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA31B1E82BAE3F0400151DD9 /* UIViewController+Extensions.swift */; };
 		BEEFF6982B9B6F2600B33C4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEFF6972B9B6F2600B33C4E /* AppDelegate.swift */; };
-		BEEFF69A2B9B6F2600B33C4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEFF6992B9B6F2600B33C4E /* SceneDelegate.swift */; };
-		BEEFF69C2B9B6F2600B33C4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEFF69B2B9B6F2600B33C4E /* ViewController.swift */; };
 		BEEFF6A12B9B6F2700B33C4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEEFF6A02B9B6F2700B33C4E /* Assets.xcassets */; };
 		BEEFF6A42B9B6F2700B33C4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEFF6A22B9B6F2700B33C4E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA0F2A072BA263FA005F3304 /* TriangleOfLife 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "TriangleOfLife 1.mlmodel"; sourceTree = "<group>"; };
+		AA31B1DD2BAE3EAD00151DD9 /* FCRN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FCRN.mlmodel; sourceTree = "<group>"; };
+		AA31B1DF2BAE3EDD00151DD9 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		AA31B1E02BAE3EDD00151DD9 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA31B1E12BAE3EDD00151DD9 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AA31B1E72BAE3F0400151DD9 /* Rotatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotatable.swift; sourceTree = "<group>"; };
+		AA31B1E82BAE3F0400151DD9 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		BEEFF6942B9B6F2600B33C4E /* TriangleOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TriangleOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEFF6972B9B6F2600B33C4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BEEFF6992B9B6F2600B33C4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BEEFF69B2B9B6F2600B33C4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BEEFF6A02B9B6F2700B33C4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEEFF6A32B9B6F2700B33C4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEEFF6A52B9B6F2700B33C4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,20 +45,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA0F29EA2BA220BB005F3304 /* Product */ = {
+		AA31B1EB2BAE411D00151DD9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				AA0F29EB2BA220BE005F3304 /* MLModel */,
+				AA31B1DF2BAE3EDD00151DD9 /* DrawingView.swift */,
+				AA31B1E12BAE3EDD00151DD9 /* HomeViewController.swift */,
+				AA31B1E02BAE3EDD00151DD9 /* HomeView.swift */,
 			);
-			name = Product;
+			path = Screens;
 			sourceTree = "<group>";
 		};
-		AA0F29EB2BA220BE005F3304 /* MLModel */ = {
+		AA31B1EC2BAE412D00151DD9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AA31B1ED2BAE413300151DD9 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AA31B1ED2BAE413300151DD9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AA31B1E72BAE3F0400151DD9 /* Rotatable.swift */,
+				AA31B1E82BAE3F0400151DD9 /* UIViewController+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AA31B1EE2BAE414F00151DD9 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				AA31B1EF2BAE415400151DD9 /* MLModels */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		AA31B1EF2BAE415400151DD9 /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				AA31B1DD2BAE3EAD00151DD9 /* FCRN.mlmodel */,
 				AA0F2A072BA263FA005F3304 /* TriangleOfLife 1.mlmodel */,
 			);
-			name = MLModel;
+			path = MLModels;
 			sourceTree = "<group>";
 		};
 		BEEFF68B2B9B6F2600B33C4E = {
@@ -73,8 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				BEEFF6AB2B9B70D200B33C4E /* App */,
-				BEEFF6AD2B9B70EF00B33C4E /* Screens */,
-				AA0F29EA2BA220BB005F3304 /* Product */,
+				AA31B1EC2BAE412D00151DD9 /* Utils */,
+				AA31B1EB2BAE411D00151DD9 /* Screens */,
+				AA31B1EE2BAE414F00151DD9 /* Product */,
 				BEEFF6AC2B9B70E400B33C4E /* Resources */,
 			);
 			path = TriangleOfLife;
@@ -84,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				BEEFF6972B9B6F2600B33C4E /* AppDelegate.swift */,
-				BEEFF6992B9B6F2600B33C4E /* SceneDelegate.swift */,
 				BEEFF6A22B9B6F2700B33C4E /* LaunchScreen.storyboard */,
 				BEEFF6A52B9B6F2700B33C4E /* Info.plist */,
 			);
@@ -97,14 +133,6 @@
 				BEEFF6A02B9B6F2700B33C4E /* Assets.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		BEEFF6AD2B9B70EF00B33C4E /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				BEEFF69B2B9B6F2600B33C4E /* ViewController.swift */,
-			);
-			name = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,10 +205,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA31B1E92BAE3F0400151DD9 /* Rotatable.swift in Sources */,
 				AA0F2A082BA263FA005F3304 /* TriangleOfLife 1.mlmodel in Sources */,
-				BEEFF69C2B9B6F2600B33C4E /* ViewController.swift in Sources */,
+				AA31B1DE2BAE3EAD00151DD9 /* FCRN.mlmodel in Sources */,
+				AA31B1E22BAE3EDD00151DD9 /* DrawingView.swift in Sources */,
+				AA31B1EA2BAE3F0400151DD9 /* UIViewController+Extensions.swift in Sources */,
+				AA31B1E32BAE3EDD00151DD9 /* HomeView.swift in Sources */,
 				BEEFF6982B9B6F2600B33C4E /* AppDelegate.swift in Sources */,
-				BEEFF69A2B9B6F2600B33C4E /* SceneDelegate.swift in Sources */,
+				AA31B1E42BAE3EDD00151DD9 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +364,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,6 +393,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
