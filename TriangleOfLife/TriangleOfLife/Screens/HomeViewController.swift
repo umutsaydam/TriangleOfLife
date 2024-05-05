@@ -30,7 +30,7 @@ final class HomeViewController: UIViewController {
         let config = MLModelConfiguration()
         config.computeUnits = .all
 
-        guard let toLModel = try? MLModel(contentsOf: TriangleOfLife_1.urlOfModelInThisBundle, configuration: config) else {
+        guard let toLModel = try? MLModel(contentsOf: BedDetector_1.urlOfModelInThisBundle, configuration: config) else {
             fatalError("Unable to load model.")
         }
 
@@ -44,12 +44,13 @@ final class HomeViewController: UIViewController {
             else {
                 fatalError("Unable to detect anything. \(error?.localizedDescription ?? "")")
             }
+
             DispatchQueue.main.async {
                 self?.drawToLDetections(detections: detections)
             }
         }
 
-        request.imageCropAndScaleOption = .scaleFit
+        request.imageCropAndScaleOption = .scaleFill
         return request
     }()
 
@@ -243,11 +244,33 @@ extension HomeViewController {
 
             // Tespitin sınırlayıcı kutusunu hesapla
             let boundingBox = detection.boundingBox
-            let rectangle = CGRect(x: boundingBox.minX * image.size.width, y: (1 - boundingBox.minY - boundingBox.height) * image.size.height, width: boundingBox.width * image.size.width, height: boundingBox.height * image.size.height)
+            let imageWidth = image.size.width * 0.95
+            let imageHeight = image.size.height * 1.0
+
+            print("Image")
+            dump(image.size)
+            print("Box")
+            dump(boundingBox)
+
+//            let heatmap_w = heatmap.count
+//            let heatmap_h = heatmap.first?.count ?? 0
+//            let w = image.size.width/ CGFloat(heatmap_w)
+//            let h = image.size.height / CGFloat(heatmap_h)
+
+            let rectangle = CGRect(x: boundingBox.minX * imageWidth, y: (1 - boundingBox.minY - boundingBox.height) * imageHeight, width: boundingBox.width * imageWidth, height: boundingBox.height * imageHeight)
+
+//            // Çerçeve içine etiketi çiz
+//            let attributes: [NSAttributedString.Key: Any] = [
+//                .font: UIFont.systemFont(ofSize: 100),
+//                .foregroundColor: UIColor.black,
+//            ]
+
+//            let attributedString = NSAttributedString(string: highestConfidenceLabel + " " + highestConfidence.description, attributes: attributes)
+//            attributedString.draw(at: CGPoint(x: rectangle.minX, y: rectangle.minY))
 
             detectedObjects.append(
                 .init(id: detection.uuid.uuidString,
-                      label: highestConfidenceLabel,
+                      label: "\(highestConfidenceLabel)" + highestConfidence.description,
                       rectangle: rectangle))
 
             UIColor(red: 0, green: 1, blue: 0, alpha: 0.2).setFill()
@@ -288,6 +311,7 @@ extension HomeViewController {
                 for i in 0..<heatmap_w {
                     let value = heatmap[i][j]
                     var alpha: CGFloat = .init(value)
+                    
                     if alpha > 1 {
                         alpha = 1
                     } else if alpha < 0 {
@@ -307,6 +331,7 @@ extension HomeViewController {
                     }
                 }
             }
+            print(object.label)
             detectedObjectColorsSum.append(objectColorValue)
         }
 

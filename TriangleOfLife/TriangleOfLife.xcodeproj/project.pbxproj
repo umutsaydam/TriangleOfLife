@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA024CD02BBD8414001E8F07 /* BedDetector 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA024CCF2BBD8414001E8F07 /* BedDetector 1.mlmodel */; };
 		AA0F2A082BA263FA005F3304 /* TriangleOfLife 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA0F2A072BA263FA005F3304 /* TriangleOfLife 1.mlmodel */; };
 		AA31B1DE2BAE3EAD00151DD9 /* FCRN.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AA31B1DD2BAE3EAD00151DD9 /* FCRN.mlmodel */; };
 		AA31B1E22BAE3EDD00151DD9 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA31B1DF2BAE3EDD00151DD9 /* DrawingView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA024CCF2BBD8414001E8F07 /* BedDetector 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "BedDetector 1.mlmodel"; sourceTree = "<group>"; };
 		AA0F2A072BA263FA005F3304 /* TriangleOfLife 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "TriangleOfLife 1.mlmodel"; sourceTree = "<group>"; };
 		AA31B1DD2BAE3EAD00151DD9 /* FCRN.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FCRN.mlmodel; sourceTree = "<group>"; };
 		AA31B1DF2BAE3EDD00151DD9 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		AA31B1EF2BAE415400151DD9 /* MLModels */ = {
 			isa = PBXGroup;
 			children = (
+				AA024CCF2BBD8414001E8F07 /* BedDetector 1.mlmodel */,
 				AA31B1DD2BAE3EAD00151DD9 /* FCRN.mlmodel */,
 				AA0F2A072BA263FA005F3304 /* TriangleOfLife 1.mlmodel */,
 			);
@@ -207,6 +210,7 @@
 			files = (
 				AA31B1E92BAE3F0400151DD9 /* Rotatable.swift in Sources */,
 				AA0F2A082BA263FA005F3304 /* TriangleOfLife 1.mlmodel in Sources */,
+				AA024CD02BBD8414001E8F07 /* BedDetector 1.mlmodel in Sources */,
 				AA31B1DE2BAE3EAD00151DD9 /* FCRN.mlmodel in Sources */,
 				AA31B1E22BAE3EDD00151DD9 /* DrawingView.swift in Sources */,
 				AA31B1EA2BAE3F0400151DD9 /* UIViewController+Extensions.swift in Sources */,
