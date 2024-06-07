@@ -247,16 +247,6 @@ extension HomeViewController {
             let imageWidth = image.size.width * 0.95
             let imageHeight = image.size.height * 1.0
 
-            print("Image")
-            dump(image.size)
-            print("Box")
-            dump(boundingBox)
-
-//            let heatmap_w = heatmap.count
-//            let heatmap_h = heatmap.first?.count ?? 0
-//            let w = image.size.width/ CGFloat(heatmap_w)
-//            let h = image.size.height / CGFloat(heatmap_h)
-
             let rectangle = CGRect(x: boundingBox.minX * imageWidth, y: (1 - boundingBox.minY - boundingBox.height) * imageHeight, width: boundingBox.width * imageWidth, height: boundingBox.height * imageHeight)
 
 //            // Çerçeve içine etiketi çiz
@@ -311,7 +301,7 @@ extension HomeViewController {
                 for i in 0..<heatmap_w {
                     let value = heatmap[i][j]
                     var alpha: CGFloat = .init(value)
-                    
+
                     if alpha > 1 {
                         alpha = 1
                     } else if alpha < 0 {
